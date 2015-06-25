@@ -21,7 +21,7 @@ composer require approached/laravel-image-optimizer
 
 After updating composer, add the ServiceProvider to the providers array in config/app.php
 ```
-'Barryvdh\Debugbar\ServiceProvider',
+'Approached\LaravelImageOptimizer\ServiceProvider'
 ```
 
 Copy the package config to your local config with the publish command:
