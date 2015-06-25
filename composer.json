@@ -1,0 +1,23 @@
+{
+  "name": "approached/laravel-image-optimizer",
+  "description": "Image optimizer for laravel",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "image",
+    "image",
+    "laravel"
+  ],
+  "homepage": "https://github.com/approached/laravel-image-optimizer",
+  "authors": [
+    {
+      "name": "Alexej Kloos",
+      "email": "alexejkloos@gmail.com",
+      "homepage": "http://alcodo.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "ps/image-optimizer": "~1.0"
+  }
+}
