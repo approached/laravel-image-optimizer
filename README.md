@@ -35,27 +35,20 @@ On uploading a file:
 ```
 public function store(Request $request)
     {
-        // cover
+        // picture vars
         $coverAbsoluteFilePath = $request->file('cover')->getRealPath();
         $coverExtension = $request->file('cover')->getClientOriginalExtension();
 
-        // optimize
+        // optimize (overwrite)
         $opt = new ImageOptimizer();
         $opt->optimizeImage($coverAbsoluteFilePath, $coverExtension);
 
-        // save
+        // save (cloud storage like S3)
         $coverOutput = file_get_contents($coverAbsoluteFilePath);
         Storage::put('/upload/foo.' . $coverExtension, $coverOutput);
 
         // delete cache
         unlink($coverAbsoluteFilePath);
-
-        // get optimized file
-        $coverOutput = file_get_contents($temp_file);
-        unlink($temp_file);
-
-        // save
-        return $this->saveCoverFile($coverOutput, $extension, $subfolder);
         
         ...
     }
