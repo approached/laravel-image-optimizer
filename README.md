@@ -30,7 +30,36 @@ php artisan vendor:publish
 ```
 
 ## Demo
-// TODO
+
+On uploading a file:
+```
+public function store(Request $request)
+    {
+        // cover
+        $coverAbsoluteFilePath = $request->file('cover')->getRealPath();
+        $coverExtension = $request->file('cover')->getClientOriginalExtension();
+
+        // optimize
+        $opt = new ImageOptimizer();
+        $opt->optimizeImage($coverAbsoluteFilePath, $coverExtension);
+
+        // save
+        $coverOutput = file_get_contents($coverAbsoluteFilePath);
+        Storage::put('/upload/foo.' . $coverExtension, $coverOutput);
+
+        // delete cache
+        unlink($coverAbsoluteFilePath);
+
+        // get optimized file
+        $coverOutput = file_get_contents($temp_file);
+        unlink($temp_file);
+
+        // save
+        return $this->saveCoverFile($coverOutput, $extension, $subfolder);
+        
+        ...
+    }
+```
 
 ## License
 MIT
