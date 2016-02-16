@@ -56,5 +56,10 @@ public function store(Request $request)
     }
 ```
 
+## Extension
+
+- On-demand image manipulation [alcodo/powerimage](https://github.com/alcodo/powerimage)
+- Gallery  [alcodo/gallery](https://github.com/alcodo/gallery)
+
 ## License
 MIT
