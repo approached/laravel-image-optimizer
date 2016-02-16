@@ -10,7 +10,7 @@ With this package you can easy optimize your image in laravel. Read the google i
 ## Installation
 
 Convert packages:
-```
+```bash
 sudo apt-get install optipng jpegoptim
 ```
 
@@ -20,7 +20,9 @@ composer require approached/laravel-image-optimizer
 ```
 
 After updating composer, add the ServiceProvider to the providers array in config/app.php
-```
+```php
+Approached\LaravelImageOptimizer\ServiceProvider::class,
+or
 'Approached\LaravelImageOptimizer\ServiceProvider'
 ```
 
@@ -32,7 +34,7 @@ php artisan vendor:publish
 ## Demo
 
 On uploading a file:
-```
+```php
 public function store(Request $request)
     {
         // picture vars
