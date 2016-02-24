@@ -1,54 +1,58 @@
 <?php namespace Approached\LaravelImageOptimizer;
 
-class ImageOptimizer
+use ImageOptimizer\OptimizerFactory;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+class ImageOptimizer extends OptimizerFactory
 {
 
-    private $pngOptimzer;
-    private $jpgOptimzer;
-
-    public function __construct()
-    {
-        $factory = new \ImageOptimizer\OptimizerFactory(array(
-            'optipng_bin' => config('imageoptimizer.optipng_path'),
-            'jpegoptim_bin' => config('imageoptimizer.jpegoptim_path'),
-            'ignore_errors' => config('imageoptimizer.ignore_errors')
-        ));
-
-        $this->pngOptimzer = $factory->get('optipng');
-        $this->jpgOptimzer = $factory->get('jpegoptim');
-    }
-
+    /**
+     * Opitimize a image
+     *
+     * @param $filepath
+     * @param null $fileExtension
+     * @throws \Exception
+     */
     public function optimizeImage($filepath, $fileExtension = null)
     {
         if (is_null($fileExtension)) {
-            $fileExtension = pathinfo($filepath, PATHINFO_EXTENSION);
-
-            if (empty($fileExtension)) {
-                throw new \Exception('File extension not found');
-            }
-            $fileExtension = strtolower($fileExtension);
+            $fileExtension = $this->getFileExtensionFromFilepath($filepath);
         }
 
-        if ($fileExtension == 'jpg') {
-            return $this->optimizeJPG($filepath);
-        } elseif ($fileExtension == 'png') {
-            return $this->optimizePNG($filepath);
-        } else {
-            return false;
+        $transformHandler = config('imageoptimizer.transform_handler');
+
+        if (!isset($transformHandler[$fileExtension])) {
+            throw new \Exception('TransformHandler for file extension: "' . $fileExtension . '"" was not found');
         }
+
+        $this->get($transformHandler[$fileExtension])->optimize($filepath);
     }
 
-    public function optimizeJPG($filepath)
+    /**
+     * Opitimize a image from a UploadedFile
+     *
+     * @param UploadedFile $image
+     * @throws \Exception
+     */
+    public function optimizeUploadedImageFile(UploadedFile $image)
     {
-        $this->jpgOptimzer->optimize($filepath);
-
-        return true;
+        $this->optimizeImage($image->getRealPath(), $image->getClientOriginalExtension());
     }
 
-    public function optimizePNG($filepath)
+    /**
+     * Get extension from a file
+     *
+     * @param $filepath
+     * @return string
+     * @throws \Exception
+     */
+    private function getFileExtensionFromFilepath($filepath)
     {
-        $this->pngOptimzer->optimize($filepath);
+        $fileExtension = pathinfo($filepath, PATHINFO_EXTENSION);
 
-        return true;
+        if (empty($fileExtension)) {
+            throw new \Exception('File extension not found');
+        }
+        return strtolower($fileExtension);
     }
 }

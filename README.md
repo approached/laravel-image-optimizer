@@ -11,7 +11,7 @@ With this package you can easy optimize your image in laravel. Read the google i
 
 Convert packages:
 ```bash
-sudo apt-get install optipng jpegoptim
+sudo apt-get install optipng pngquant pngcrush gifsicle jpegoptim
 ```
 
 Require this package with composer:
@@ -35,22 +35,15 @@ php artisan vendor:publish
 
 On uploading a file:
 ```php
-public function store(Request $request)
+public function store(Request $request, ImageOptimizer $imageOptimizer)
     {
-        // picture vars
-        $coverAbsoluteFilePath = $request->file('cover')->getRealPath();
-        $coverExtension = $request->file('cover')->getClientOriginalExtension();
+        $picture = $request->file('picture');
 
-        // optimize (overwrite)
-        $opt = new ImageOptimizer();
-        $opt->optimizeImage($coverAbsoluteFilePath, $coverExtension);
+        // optimize
+        $imageOptimizer->optimizeUploadedImageFile($picture);
 
-        // save (cloud storage like S3)
-        $coverOutput = file_get_contents($coverAbsoluteFilePath);
-        Storage::put('/upload/foo.' . $coverExtension, $coverOutput);
-
-        // delete cache
-        unlink($coverAbsoluteFilePath);
+        // save
+        Storage::put('/my/cool/path/test.jog', File::get($picture));
         
         ...
     }

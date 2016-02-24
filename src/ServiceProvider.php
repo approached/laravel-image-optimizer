@@ -1,13 +1,10 @@
 <?php namespace Approached\LaravelImageOptimizer;
 
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
+
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = true;
 
     /**
      * Register the service provider.
@@ -18,6 +15,18 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $configPath = __DIR__ . '/../config/imageoptimizer.php';
         $this->mergeConfigFrom($configPath, 'imageoptimizer');
+
+        $this->app->singleton('ImageOptimizer', function ($app) {
+
+            $options = config('imageoptimizer.options');
+
+            // $logger = $this->app->make('log')->getMonolog();
+            $logger = new Logger('image_optimizer_log');
+            $handler = new StreamHandler(config('imageoptimizer.log_file'), Logger::INFO);
+            $logger->pushHandler($handler);
+
+            return new ImageOptimizer($options, $logger);
+        });
     }
 
     /**
