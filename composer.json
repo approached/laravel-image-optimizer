@@ -18,7 +18,7 @@
     }
   ],
   "require": {
-    "laravel/framework": "5.1.*",
+    "laravel/framework": "~5.0",
     "ps/image-optimizer": "~1.0"
   },
   "require-dev": {
