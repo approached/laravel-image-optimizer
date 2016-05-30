@@ -18,8 +18,8 @@
     }
   ],
   "require": {
-    "laravel/framework": "~5.0",
-    "ps/image-optimizer": "~1.0"
+    "ps/image-optimizer": "~1.0",
+    "illuminate/support": "^5.2"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0"
