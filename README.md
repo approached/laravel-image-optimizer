@@ -4,7 +4,7 @@
 [![Latest Stable Version](https://poser.pugx.org/approached/laravel-image-optimizer/v/stable)](https://packagist.org/packages/approached/laravel-image-optimizer)
 [![Total Downloads](https://poser.pugx.org/approached/laravel-image-optimizer/downloads)](https://packagist.org/packages/approached/laravel-image-optimizer)
 
-With this package you can easy optimize your image in *laravel 5.x* or *lumen*. Read the google instruction https://developers.google.com/speed/docs/insights/OptimizeImages about image optimize.
+With this package you can easy optimize your image in **laravel 5.x** or **lumen**. Read the google instruction https://developers.google.com/speed/docs/insights/OptimizeImages about image optimize.
 
 
 ## Installation
