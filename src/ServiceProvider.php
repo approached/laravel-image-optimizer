@@ -1,11 +1,12 @@
-<?php namespace Approached\LaravelImageOptimizer;
+<?php
+
+namespace Approached\LaravelImageOptimizer;
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-
     /**
      * Register the service provider.
      *
@@ -13,11 +14,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        $configPath = __DIR__ . '/../config/imageoptimizer.php';
+        $configPath = __DIR__.'/../config/imageoptimizer.php';
         $this->mergeConfigFrom($configPath, 'imageoptimizer');
 
         $this->app->singleton('ImageOptimizer', function ($app) {
-
             $options = config('imageoptimizer.options');
 
             // $logger = $this->app->make('log')->getMonolog();
@@ -37,7 +37,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/imageoptimizer.php' => config_path('imageoptimizer.php'),
+            __DIR__.'/../config/imageoptimizer.php' => config_path('imageoptimizer.php'),
         ]);
     }
 }
