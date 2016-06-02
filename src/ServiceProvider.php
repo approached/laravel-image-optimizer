@@ -17,7 +17,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $configPath = __DIR__.'/../config/imageoptimizer.php';
         $this->mergeConfigFrom($configPath, 'imageoptimizer');
 
-        $this->app->singleton('ImageOptimizer', function ($app) {
+        $this->app->singleton('Approached\LaravelImageOptimizer\ImageOptimizer', function ($app) {
             $options = config('imageoptimizer.options');
 
             // $logger = $this->app->make('log')->getMonolog();
