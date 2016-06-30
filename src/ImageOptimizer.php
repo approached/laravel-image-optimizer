@@ -24,7 +24,7 @@ class ImageOptimizer extends OptimizerFactory
         $transformHandler = config('imageoptimizer.transform_handler');
 
         if (!isset($transformHandler[$fileExtension])) {
-            throw new \Exception('TransformHandler for file extension: "'.$fileExtension.'"" was not found');
+            throw new \Exception('TransformHandler for file extension: "'.$fileExtension.'" was not found');
         }
 
         $this->get($transformHandler[$fileExtension])->optimize($filepath);
