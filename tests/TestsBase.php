@@ -20,7 +20,7 @@ class TestsBase extends Orchestra\Testbench\TestCase
         fwrite(STDOUT, 'Saved: ' . $saveSize . PHP_EOL);
 
 
-        $saveSizePercent = 100 / filesize($originalFile) * $saveSize;
+        $saveSizePercent = (100 / filesize($originalFile)) * $saveSize;
         $saveSizePercent = round($saveSizePercent);
         fwrite(STDOUT, 'Saved in percent: ' . $saveSizePercent . '%' . PHP_EOL);
     }
