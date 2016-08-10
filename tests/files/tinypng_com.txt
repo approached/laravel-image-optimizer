@@ -9,3 +9,10 @@ Before: 115.5 KB
 After: 30.4 KB
 Saved: 85.1 KB
 Reduce: 74%
+
+Own results:
+pngcrush: 40% Size: 68909
+pngout: 26% Size: 85361
+optipng: 21% Size: 91182
+pngcrush: 18% Size: 94181
+
