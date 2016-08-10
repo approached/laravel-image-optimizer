@@ -18,15 +18,18 @@
     }
   ],
   "require": {
-    "ps/image-optimizer": "~1.0",
-    "illuminate/support": "~5.0"
+    "ps/image-optimizer": "~1.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^5.5"
+    "phpunit/phpunit": "^5.5",
+    "orchestra/testbench": "~3.0"
   },
   "autoload": {
     "psr-4": {
       "Approached\\LaravelImageOptimizer\\": "src/"
-    }
+    },
+    "classmap": [
+      "tests"
+    ]
   }
 }
