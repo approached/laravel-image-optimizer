@@ -14,29 +14,29 @@ return [
     'options' => [
         'ignore_errors' => false,
 
-        'optipng_bin'     => '/usr/bin/optipng',
+        'optipng_bin' => '/usr/bin/optipng',
         'optipng_options' => ['-i0', '-o2', '-quiet'],
 
-        'pngquant_bin'     => '/usr/bin/pngquant',
-        'pngquant_options' => ['--force'],
+        'pngquant_bin' => '/usr/bin/pngquant',
+        'pngquant_options' => ['--force', '--quality', 95],
 
-        'pngcrush_bin'     => '/usr/bin/pngcrush',
+        'pngcrush_bin' => '/usr/bin/pngcrush',
         'pngcrush_options' => ['-reduce', '-q', '-ow'],
 
-//    'pngout_bin' => '/usr/bin/pngout',
-//    'pngout_options' => ['-s3', '-q', '-y'],
+        'pngout_bin' => '/usr/bin/pngout',
+        'pngout_options' => ['-s3', '-q', '-y'],
 
-        'gifsicle_bin'     => '/usr/bin/gifsicle',
+        'gifsicle_bin' => '/usr/bin/gifsicle',
         'gifsicle_options' => ['-b', '-O5'],
 
-        'jpegoptim_bin'     => '/usr/bin/jpegoptim',
+        'jpegoptim_bin' => '/usr/bin/jpegoptim',
         'jpegoptim_options' => ['--strip-all', '--all-progressive'],
 
-//    'jpegtran_bin' => '/usr/bin/jpegtran',
-//    'jpegtran_options' => ['-optimize', '-progressive'],
+        'jpegtran_bin' => '/usr/bin/jpegtran',
+        'jpegtran_options' => ['-optimize', '-progressive'],
 
-//    'advpng_bin' => '/usr/bin/advpng',
-//    'advpng_options' => ['-z', '-4', '-q'],
+        'advpng_bin' => '/usr/bin/advpng',
+        'advpng_options' => ['-z', '-4', '-q'],
     ],
 
 
@@ -49,10 +49,10 @@ return [
      |
      */
     'transform_handler' => [
-        'png'  => 'pngquant',
-        'jpg'  => 'jpegoptim',
+        'png' => 'pngout',
+        'jpg' => 'jpegoptim',
         'jpeg' => 'jpegoptim',
-        'gif'  => 'gifsicle',
+        'gif' => 'gifsicle',
     ],
 
     /*
@@ -63,6 +63,6 @@ return [
      | Only for image optimize errors
      |
      */
-    'log_file' => storage_path().'/logs/image_optimize.log',
+    'log_file' => storage_path() . '/logs/image_optimize.log',
 
 ];
