@@ -4,7 +4,7 @@ After: 18.4 KB
 Saved: 178.7 KB
 Reduce: 91%
 
-2.testimage.jpg
+2.testimage.png
 Before: 115.5 KB
 After: 30.4 KB
 Saved: 85.1 KB
