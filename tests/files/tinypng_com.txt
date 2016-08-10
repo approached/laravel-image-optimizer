@@ -1,0 +1,9 @@
+1.testimage.jpg
+Before: 197.1 KB
+After: 18.4 KB
+Reduce: 91%
+
+2.testimage.jpg
+Before: 115.5 KB
+After: 30.4 KB
+Reduce: 74%

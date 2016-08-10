@@ -19,7 +19,7 @@ class ConvertTest extends TestCase
     {
         $this->assertEquals(1, 1);
     }
-    
+
     /**
      * @test
      */
