@@ -8,7 +8,7 @@ class ConvertPNGTest extends TestsBase
         parent::setUp();
 
         $this->originalFile = __DIR__ . '/files/testimage.png';
-        $this->compressedFile = __DIR__ . '/files/testimage_compressed.png';
+        $this->compressedFile = '/tmp/testimage_compressed.png';
         copy($this->originalFile, $this->compressedFile);
     }
 

@@ -8,7 +8,7 @@ class ConvertGIFTest extends TestsBase
         parent::setUp();
 
         $this->originalFile = __DIR__ . '/files/testimage.gif';
-        $this->compressedFile = __DIR__ . '/files/testimage_compressed.gif';
+        $this->compressedFile = '/tmp/testimage_compressed.gif';
         copy($this->originalFile, $this->compressedFile);
     }
 

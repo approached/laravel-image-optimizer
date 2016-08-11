@@ -8,7 +8,7 @@ class GooglePNGTest extends TestsBase
         parent::setUp();
 
         $this->originalFile = __DIR__ . '/files/logo.png';
-        $this->compressedFile = __DIR__ . '/files/logo_compressed.png';
+        $this->compressedFile = '/tmp/logo_compressed.png';
         copy($this->originalFile, $this->compressedFile);
     }
 

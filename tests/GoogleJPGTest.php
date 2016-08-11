@@ -8,7 +8,7 @@ class GoogleJPGTest extends TestsBase
         parent::setUp();
 
         $this->originalFile = __DIR__ . '/files/inka-seeschwalbe.jpg';
-        $this->compressedFile = __DIR__ . '/files/inka-seeschwalbe_compressed.jpg';
+        $this->compressedFile = '/tmp/inka-seeschwalbe_compressed.jpg';
         copy($this->originalFile, $this->compressedFile);
     }
 

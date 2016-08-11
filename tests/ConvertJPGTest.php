@@ -8,7 +8,7 @@ class ConvertJPGTest extends TestsBase
         parent::setUp();
 
         $this->originalFile = __DIR__ . '/files/testimage.jpg';
-        $this->compressedFile = __DIR__ . '/files/testimage_compressed.jpg';
+        $this->compressedFile = '/tmp/testimage_compressed.jpg';
         copy($this->originalFile, $this->compressedFile);
     }
 
