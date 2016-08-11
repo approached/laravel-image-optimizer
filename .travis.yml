@@ -1,0 +1,26 @@
+language: php
+
+php:
+  - 5.5
+  - 5.6
+  - 7.0
+  - nightly
+  - hhvm
+
+matrix:
+  allow_failures:
+    - php: nightly
+
+env:
+  - LARAVEL_VERSION="5.1.*" TESTBENCH_VERSION="3.1.*"
+  - LARAVEL_VERSION="5.2.*" TESTBENCH_VERSION="3.2.*"
+
+before_script:
+  - composer self-update
+  - composer require orchestra/testbench:"$TESTBENCH_VERSION" illuminate/support:"$LARAVEL_VERSION"
+  - composer install
+  - sudo apt-get install pngquant gifsicle jpegoptim
+
+script: phpunit --coverage-text
+
+sudo: false
