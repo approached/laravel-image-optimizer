@@ -30,7 +30,7 @@ return [
         'gifsicle_options' => ['-b', '-O5'],
 
         'jpegoptim_bin' => '/usr/bin/jpegoptim',
-        'jpegoptim_options' => ['--strip-all', '--all-progressive'],
+        'jpegoptim_options' => ['--strip-all', '-m13'],
 
         'jpegtran_bin' => '/usr/bin/jpegtran',
         'jpegtran_options' => ['-optimize', '-progressive'],
