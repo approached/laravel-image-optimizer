@@ -18,7 +18,7 @@ class TestsBase extends Orchestra\Testbench\TestCase
         $saveSize = $this->getFilesizeDifference($originalFile, $compressedFile);
         fwrite(STDOUT, 'Saved: ' . $saveSize . PHP_EOL);
 
-        $fileSizeDifferent = $this->getFilesizeDifference($originalFile, $compressedFile);
+        $fileSizeDifferent = $this->getFilesizeDifferencePercent($originalFile, $compressedFile);
         fwrite(STDOUT, 'Saved in percent: ' . $fileSizeDifferent . '%' . PHP_EOL);
     }
 
