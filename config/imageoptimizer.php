@@ -49,7 +49,7 @@ return [
      |
      */
     'transform_handler' => [
-        'png' => 'pngout',
+        'png' => 'pngquant',
         'jpg' => 'jpegoptim',
         'jpeg' => 'jpegoptim',
         'gif' => 'gifsicle',

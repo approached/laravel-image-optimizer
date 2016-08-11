@@ -15,14 +15,23 @@ class TestsBase extends Orchestra\Testbench\TestCase
 
     protected function printFilesizeDifference($originalFile, $compressedFile)
     {
-
-        $saveSize = filesize($originalFile) - filesize($compressedFile);
+        $saveSize = $this->getFilesizeDifference($originalFile, $compressedFile);
         fwrite(STDOUT, 'Saved: ' . $saveSize . PHP_EOL);
 
+        $fileSizeDifferent = $this->getFilesizeDifference($originalFile, $compressedFile);
+        fwrite(STDOUT, 'Saved in percent: ' . $fileSizeDifferent . '%' . PHP_EOL);
+    }
 
+    /**
+     * @param $originalFile
+     * @param $compressedFile
+     * @return float
+     */
+    protected function getFilesizeDifferencePercent($originalFile, $compressedFile)
+    {
+        $saveSize = $this->getFilesizeDifference($originalFile, $compressedFile);
         $saveSizePercent = (100 / filesize($originalFile)) * $saveSize;
-        $saveSizePercent = round($saveSizePercent);
-        fwrite(STDOUT, 'Saved in percent: ' . $saveSizePercent . '%' . PHP_EOL);
+        return round($saveSizePercent);
     }
 
     /**
@@ -33,5 +42,16 @@ class TestsBase extends Orchestra\Testbench\TestCase
         $this->assertNotEmpty(
             app('Approached\LaravelImageOptimizer\ImageOptimizer')
         );
+    }
+
+    /**
+     * @param $originalFile
+     * @param $compressedFile
+     * @return int
+     */
+    protected function getFilesizeDifference($originalFile, $compressedFile)
+    {
+        $saveSize = filesize($originalFile) - filesize($compressedFile);
+        return $saveSize;
     }
 }
