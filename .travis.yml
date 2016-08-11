@@ -16,8 +16,8 @@ env:
   - LARAVEL_VERSION="5.2.*" TESTBENCH_VERSION="3.2.*"
 
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y pngquant gifsicle jpegoptim
+  - apt-get -qq update
+  - apt-get install -y pngquant gifsicle jpegoptim
 
 before_script:
   - composer self-update
