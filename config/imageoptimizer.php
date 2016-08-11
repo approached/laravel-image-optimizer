@@ -17,7 +17,7 @@ return [
 //        'optipng_bin' => '/usr/bin/optipng',
 //        'optipng_options' => ['-i0', '-o2', '-quiet'],
 //
-        'pngquant_bin' => '/usr/bin/pngquant',
+        'pngquant_bin'     => '/usr/bin/pngquant',
         'pngquant_options' => ['--force', '--quality', 95],
 //
 //        'pngcrush_bin' => '/usr/bin/pngcrush',
@@ -26,10 +26,10 @@ return [
 //        'pngout_bin' => '/usr/bin/pngout',
 //        'pngout_options' => ['-s3', '-q', '-y'],
 //
-        'gifsicle_bin' => '/usr/bin/gifsicle',
+        'gifsicle_bin'     => '/usr/bin/gifsicle',
         'gifsicle_options' => ['-b', '-O5'],
 
-        'jpegoptim_bin' => '/usr/bin/jpegoptim',
+        'jpegoptim_bin'     => '/usr/bin/jpegoptim',
         'jpegoptim_options' => ['--strip-all', '-m13'],
 //
 //        'jpegtran_bin' => '/usr/bin/jpegtran',
@@ -49,10 +49,10 @@ return [
      |
      */
     'transform_handler' => [
-        'png' => 'pngquant',
-        'jpg' => 'jpegoptim',
+        'png'  => 'pngquant',
+        'jpg'  => 'jpegoptim',
         'jpeg' => 'jpegoptim',
-        'gif' => 'gifsicle',
+        'gif'  => 'gifsicle',
     ],
 
     /*
@@ -63,6 +63,6 @@ return [
      | Only for image optimize errors
      |
      */
-    'log_file' => storage_path() . '/logs/image_optimize.log',
+    'log_file' => storage_path().'/logs/image_optimize.log',
 
 ];
