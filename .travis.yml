@@ -15,11 +15,14 @@ env:
   - LARAVEL_VERSION="5.1.*" TESTBENCH_VERSION="3.1.*"
   - LARAVEL_VERSION="5.2.*" TESTBENCH_VERSION="3.2.*"
 
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y pngquant gifsicle jpegoptim
+
 before_script:
   - composer self-update
   - composer require orchestra/testbench:"$TESTBENCH_VERSION" illuminate/support:"$LARAVEL_VERSION"
   - composer install
-  - sudo apt-get install pngquant gifsicle jpegoptim
 
 script: phpunit --coverage-text
 
