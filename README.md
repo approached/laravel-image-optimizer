@@ -9,9 +9,9 @@ With this package you can easy optimize your image in **laravel 5.x** or **lumen
 
 ## Installation
 
-Convert packages:
+Recommend convert packages:
 ```bash
-sudo apt-get install optipng pngquant pngcrush gifsicle jpegoptim
+sudo apt-get install pngquant gifsicle jpegoptim
 ```
 
 Require this package with composer:
