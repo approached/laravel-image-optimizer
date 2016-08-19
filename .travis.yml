@@ -52,10 +52,3 @@ before_script:
   - composer install
 
 script: phpunit --coverage-text
-
-
-http://pngquant.org/pngquant_1.7.1-1_i386.deb
-http://pngquant.org/pngquant_2.7.2-1_i386.deb
-http://pngquant.org/pngquant_2.5.0-1_amd64.deb
-
-https://pkgs.org/search/pngquant
