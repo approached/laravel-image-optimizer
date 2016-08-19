@@ -47,5 +47,4 @@ class GooglePNGTest extends TestCase
         $fileSizeDifferenceSize = $this->getFilesizeDifference($this->originalFile, $this->compressedFile);
         $this->assertGreaterThanOrEqual(1300, $fileSizeDifferenceSize);
     }
-
 }
