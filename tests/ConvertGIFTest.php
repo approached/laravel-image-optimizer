@@ -1,6 +1,6 @@
 <?php
 
-class ConvertGIFTest extends TestsBase
+class ConvertGIFTest extends TestCase
 {
     public function setUp()
     {

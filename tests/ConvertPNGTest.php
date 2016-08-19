@@ -1,6 +1,6 @@
 <?php
 
-class ConvertPNGTest extends TestsBase
+class ConvertPNGTest extends TestCase
 {
     public function setUp()
     {

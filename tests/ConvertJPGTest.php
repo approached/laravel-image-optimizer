@@ -1,6 +1,6 @@
 <?php
 
-class ConvertJPGTest extends TestsBase
+class ConvertJPGTest extends TestCase
 {
     public function setUp()
     {

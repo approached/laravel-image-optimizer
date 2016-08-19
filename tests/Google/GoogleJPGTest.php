@@ -1,6 +1,6 @@
 <?php
 
-class GoogleJPGTest extends TestsBase
+class GoogleJPGTest extends TestCase
 {
     public function setUp()
     {

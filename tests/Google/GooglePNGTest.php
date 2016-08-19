@@ -1,6 +1,6 @@
 <?php
 
-class GooglePNGTest extends TestsBase
+class GooglePNGTest extends TestCase
 {
     public function setUp()
     {
@@ -47,4 +47,5 @@ class GooglePNGTest extends TestsBase
         $fileSizeDifferenceSize = $this->getFilesizeDifference($this->originalFile, $this->compressedFile);
         $this->assertGreaterThanOrEqual(1300, $fileSizeDifferenceSize);
     }
+
 }

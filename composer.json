@@ -27,9 +27,11 @@
   "autoload": {
     "psr-4": {
       "Approached\\LaravelImageOptimizer\\": "src/"
-    },
+    }
+  },
+  "autoload-dev": {
     "classmap": [
-      "tests"
+      "tests/TestCase.php"
     ]
   }
 }
