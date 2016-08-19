@@ -1,5 +1,7 @@
 language: php
 
+sudo: true
+
 php:
 #  - 5.5
 #  - 5.6
@@ -16,17 +18,23 @@ env:
 #  - LARAVEL_VERSION="5.2.*" TESTBENCH_VERSION="3.2.*"
 #  - LARAVEL_VERSION="5.3.*" TESTBENCH_VERSION="3.3.*"
 
-addons:
-  apt:
-    packages:
-    - pngquant
-    - gifsicle
-    - jpegoptim
+#addons:
+#  apt:
+#    packages:
+#    - pngquant
+#    - gifsicle
+#    - jpegoptim
+#
+#    before_install:
+
 
 before_install:
+  - wget http://de.archive.ubuntu.com/ubuntu/pool/universe/p/pngquant/pngquant_2.5.0-1_amd64.deb
+  - sudo dpkg -i pngquant_2.5.0-1_amd64.deb
+
   - pngquant --version # 2.5.0 (June 2015)
-  - jpegoptim --version # jpegoptim v1.4.3  x86_64-pc-linux-gnu (libjpeg version: 8d  15-Jan-2012)
-  - gifsicle --version # LCDF Gifsicle 1.88
+#  - jpegoptim --version # jpegoptim v1.4.3  x86_64-pc-linux-gnu (libjpeg version: 8d  15-Jan-2012)
+#  - gifsicle --version # LCDF Gifsicle 1.88
 #  - sudapt-get -y update
 #  - apt-get -y upgrade
 #  - sudo apt-get install -y pngquant gifsicle jpegoptim
@@ -45,4 +53,9 @@ before_script:
 
 script: phpunit --coverage-text
 
-sudo: false
+
+http://pngquant.org/pngquant_1.7.1-1_i386.deb
+http://pngquant.org/pngquant_2.7.2-1_i386.deb
+http://pngquant.org/pngquant_2.5.0-1_amd64.deb
+
+https://pkgs.org/search/pngquant
