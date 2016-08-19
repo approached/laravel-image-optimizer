@@ -33,10 +33,14 @@ before_install:
   - wget http://de.archive.ubuntu.com/ubuntu/pool/universe/p/pngquant/pngquant_2.5.0-1_amd64.deb
   - sudo dpkg -i pngquant_2.5.0-1_amd64.deb
 
-  - wget http://ftp.de.debian.org/debian/pool/main/g/gifsicle/gifsicle_1.88-1_amd64.deb
+#  - wget http://ftp.de.debian.org/debian/pool/main/g/gifsicle/gifsicle_1.88-1_amd64.deb
+#  - sudo dpkg -i gifsicle_1.88-1_amd64.deb
+  - wget https://launchpad.net/ubuntu/+archive/primary/+files/gifsicle_1.88-1_amd64.deb
   - sudo dpkg -i gifsicle_1.88-1_amd64.deb
 
-  - wget http://ftp.de.debian.org/debian/pool/main/j/jpegoptim/jpegoptim_1.4.3-1_amd64.deb
+#  - wget http://ftp.de.debian.org/debian/pool/main/j/jpegoptim/jpegoptim_1.4.3-1_amd64.deb
+#  - sudo dpkg -i jpegoptim_1.4.3-1_amd64.deb
+  - wget https://launchpad.net/ubuntu/+archive/primary/+files/jpegoptim_1.4.3-1_amd64.deb
   - sudo dpkg -i jpegoptim_1.4.3-1_amd64.deb
 
 
