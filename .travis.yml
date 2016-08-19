@@ -29,9 +29,9 @@ env:
 
 
 before_install:
-#  - wget http://de.archive.ubuntu.com/ubuntu/pool/universe/p/pngquant/pngquant_2.5.0-1_amd64.deb
-  - wget http://ftp.de.debian.org/debian/pool/main/p/pngquant/pngquant_2.5.0-1+b1_amd64.deb
-  - sudo dpkg -i pngquant_2.5.0-1+b1_amd64.deb
+#  - wget http://ftp.de.debian.org/debian/pool/main/p/pngquant/pngquant_2.5.0-1+b1_amd64.deb
+  - wget http://de.archive.ubuntu.com/ubuntu/pool/universe/p/pngquant/pngquant_2.5.0-1_amd64.deb
+  - sudo dpkg -i pngquant_2.5.0-1_amd64.deb
 
   - wget http://ftp.de.debian.org/debian/pool/main/g/gifsicle/gifsicle_1.88-1_amd64.deb
   - sudo dpkg -i gifsicle_1.88-1_amd64.deb
