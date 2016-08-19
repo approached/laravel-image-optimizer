@@ -12,6 +12,7 @@ php:
 matrix:
   allow_failures:
     - php: nightly
+    - env: LARAVEL_VERSION="5.3.*" TESTBENCH_VERSION="3.3.*"
 
 env:
   - LARAVEL_VERSION="5.1.*" TESTBENCH_VERSION="3.1.*"
