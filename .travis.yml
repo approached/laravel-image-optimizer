@@ -16,10 +16,17 @@ env:
 #  - LARAVEL_VERSION="5.2.*" TESTBENCH_VERSION="3.2.*"
 #  - LARAVEL_VERSION="5.3.*" TESTBENCH_VERSION="3.3.*"
 
+addons:
+  apt:
+    packages:
+    - pngquant
+    - gifsicle
+    - jpegoptim
+
 before_install:
-#  - apt-get -y update
+#  - sudapt-get -y update
 #  - apt-get -y upgrade
-  - sudo apt-get install -y pngquant gifsicle jpegoptim
+#  - sudo apt-get install -y pngquant gifsicle jpegoptim
   - cd /tmp && wget https://lagerlogistik-azubi.de/sites/lagerlogistik-azubi.de/files/head.png
   - ls -la /tmp/
   - cd /tmp && pngquant head.png
