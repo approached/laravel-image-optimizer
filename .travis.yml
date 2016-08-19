@@ -27,7 +27,7 @@ before_install:
 #  - sudapt-get -y update
 #  - apt-get -y upgrade
 #  - sudo apt-get install -y pngquant gifsicle jpegoptim
-  - cd /tmp && wget https://lagerlogistik-azubi.de/sites/lagerlogistik-azubi.de/files/head.png
+  - cd /tmp && wget https://lagerlogistik-azubi.de/sites/lagerlogistik-azubi.de/files/head.png --no-check-certificate
   - ls -la /tmp/
   - cd /tmp && pngquant head.png
   - ls -la /tmp/
