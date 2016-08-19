@@ -17,11 +17,16 @@ env:
 #  - LARAVEL_VERSION="5.3.*" TESTBENCH_VERSION="3.3.*"
 
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y pngquant gifsicle jpegoptim
-  - which pngquant
-  - which gifsicle
-  - which jpegoptim
+#  - apt-get -y update
+#  - apt-get -y upgrade
+  - apt-get install -y pngquant gifsicle jpegoptim
+  - cd /tmp && wget https://lagerlogistik-azubi.de/sites/lagerlogistik-azubi.de/files/head.png
+  - ls -la /tmp/
+  - cd /tmp && pngquant head.png
+  - ls -la /tmp/
+#  - which pngquant
+#  - which gifsicle
+#  - which jpegoptim
 
 before_script:
   - composer self-update
@@ -30,4 +35,4 @@ before_script:
 
 script: phpunit --coverage-text
 
-sudo: true
+sudo: false
