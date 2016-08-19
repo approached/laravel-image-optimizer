@@ -7,7 +7,7 @@ class ConvertJPGTest extends TestCase
         parent::setUp();
 
         $this->originalFile = __DIR__.'/files/testimage.jpg';
-        $this->compressedFile = $temp_file = sys_get_temp_dir() . '/php_image_optimizer.jpg';
+        $this->compressedFile = $temp_file = sys_get_temp_dir().'/php_image_optimizer.jpg';
         copy($this->originalFile, $this->compressedFile);
     }
 

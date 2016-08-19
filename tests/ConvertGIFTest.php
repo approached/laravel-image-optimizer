@@ -7,7 +7,7 @@ class ConvertGIFTest extends TestCase
         parent::setUp();
 
         $this->originalFile = __DIR__.'/files/testimage.gif';
-        $this->compressedFile = $temp_file = sys_get_temp_dir() . '/php_image_optimizer.gif';
+        $this->compressedFile = $temp_file = sys_get_temp_dir().'/php_image_optimizer.gif';
         copy($this->originalFile, $this->compressedFile);
     }
 
