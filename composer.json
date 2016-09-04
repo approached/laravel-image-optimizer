@@ -19,7 +19,7 @@
   ],
   "require": {
     "ps/image-optimizer": "~1.0",
-    "phpunit/phpunit": "~4.0"
+    "phpunit/phpunit": ">=4.0"
   },
   "require-dev": {
     "orchestra/testbench": "~3.0"
