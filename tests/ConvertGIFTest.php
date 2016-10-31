@@ -22,6 +22,7 @@ class ConvertGIFTest extends TestCase
      */
     public function it_converts_gif_file()
     {
+        /** @var \Approached\LaravelImageOptimizer\ImageOptimizer $imageOptimizer */
         $imageOptimizer = app('Approached\LaravelImageOptimizer\ImageOptimizer');
 
         // check original file

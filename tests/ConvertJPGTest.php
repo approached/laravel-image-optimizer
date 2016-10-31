@@ -22,6 +22,7 @@ class ConvertJPGTest extends TestCase
      */
     public function it_converts_jpg_file()
     {
+        /** @var \Approached\LaravelImageOptimizer\ImageOptimizer $imageOptimizer */
         $imageOptimizer = app('Approached\LaravelImageOptimizer\ImageOptimizer');
 
         // check original file
