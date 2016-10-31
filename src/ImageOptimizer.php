@@ -20,6 +20,7 @@ class ImageOptimizer extends OptimizerFactory
         if (is_null($fileExtension)) {
             $fileExtension = $this->getFileExtensionFromFilepath($filepath);
         }
+        $fileExtension = strtolower($fileExtension);
 
         $transformHandler = config('imageoptimizer.transform_handler');
 
@@ -59,6 +60,6 @@ class ImageOptimizer extends OptimizerFactory
             throw new \Exception('File extension not found');
         }
 
-        return strtolower($fileExtension);
+        return $fileExtension;
     }
 }
