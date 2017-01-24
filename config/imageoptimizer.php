@@ -17,7 +17,7 @@ return [
 //        'optipng_bin' => '/usr/bin/optipng',
 //        'optipng_options' => ['-i0', '-o2', '-quiet'],
 //
-        'pngquant_bin'     => '/usr/bin/pngquant',
+        'pngquant_bin'     => env('PNGQUANT', '/usr/bin/pngquant'),
         'pngquant_options' => ['--force'],
 //
 //        'pngcrush_bin' => '/usr/bin/pngcrush',
@@ -26,10 +26,10 @@ return [
 //        'pngout_bin' => '/usr/bin/pngout',
 //        'pngout_options' => ['-s3', '-q', '-y'],
 //
-        'gifsicle_bin'     => '/usr/bin/gifsicle',
+        'gifsicle_bin'     => env('GIFSICLE', '/usr/bin/gifsicle'),
         'gifsicle_options' => ['-b', '-O5'],
 
-        'jpegoptim_bin'     => '/usr/bin/jpegoptim',
+        'jpegoptim_bin'     => env('JPEGOPTIM','/usr/bin/jpegoptim'),
         'jpegoptim_options' => ['--strip-all'],
 //
 //        'jpegtran_bin' => '/usr/bin/jpegtran',
