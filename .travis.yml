@@ -3,17 +3,15 @@ language: php
 sudo: true
 
 php:
-  - 5.5
   - 5.6
   - 7.0
   - 7.1
   - nightly
-  - hhvm
 
 matrix:
   allow_failures:
     - php: nightly
-    - env: LARAVEL_VERSION="5.3.*" TESTBENCH_VERSION="3.3.*"
+    - env: LARAVEL_VERSION="5.4.*" TESTBENCH_VERSION="3.4.*"
 
 env:
   - LARAVEL_VERSION="5.1.*" TESTBENCH_VERSION="3.1.*"
