@@ -7,25 +7,28 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ImageOptimizer extends OptimizerFactory
 {
+    private $extensions = [
+        'image/gif' => 'gif',
+        'image/jpeg' => 'jpg',
+        'image/pjpeg' => 'jpg',
+        'image/png' => 'png',
+        'image/x-png' => 'png',
+    ];
+
     /**
      * Opitimize a image.
      *
      * @param $filepath
-     * @param null $fileExtension
-     *
      * @throws \Exception
      */
-    public function optimizeImage($filepath, $fileExtension = null)
+    public function optimizeImage($filepath)
     {
-        if (is_null($fileExtension)) {
-            $fileExtension = $this->getFileExtensionFromFilepath($filepath);
-        }
-        $fileExtension = strtolower($fileExtension);
+        $fileExtension = $this->extensions[mime_content_type($filepath)];
 
         $transformHandler = config('imageoptimizer.transform_handler');
 
         if (!isset($transformHandler[$fileExtension])) {
-            throw new \Exception('TransformHandler for file extension: "'.$fileExtension.'" was not found');
+            throw new \Exception('TransformHandler for file extension: "' . $fileExtension . '" was not found');
         }
 
         $this->get($transformHandler[$fileExtension])->optimize($filepath);
@@ -40,7 +43,7 @@ class ImageOptimizer extends OptimizerFactory
      */
     public function optimizeUploadedImageFile(UploadedFile $image)
     {
-        $this->optimizeImage($image->getRealPath(), $image->getClientOriginalExtension());
+        $this->optimizeImage($image->getRealPath());
     }
 
     /**
