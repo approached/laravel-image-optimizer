@@ -2,7 +2,6 @@
 
 namespace Approached\LaravelImageOptimizer\Middleware;
 
-use Approached\LaravelImageOptimizer\ImageOptimizer;
 use Closure;
 
 class AutoImageOptimizer
@@ -11,24 +10,29 @@ class AutoImageOptimizer
      * Handle an incoming request.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
+     * @param \Closure $next
      *
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        $response = $next($request);
+        if ($request->method() != 'GET') {
 
-        if (in_array($request->method(), ['post', 'put', 'patch'])) {
-            $imageOptimizer = new ImageOptimizer();
+            /** @var \Approached\LaravelImageOptimizer\ImageOptimizer $imageOptimizer */
+            $imageOptimizer = app('Approached\LaravelImageOptimizer\ImageOptimizer');
 
             foreach ($request->allFiles() as $file) {
-                if (substr($file->getMimeType(), 0, 5) == 'image') {
+                if ($this->isImageFile($file)) {
                     $imageOptimizer->optimizeUploadedImageFile($file);
                 }
             }
         }
 
-        return $response;
+        return $next($request);
+    }
+
+    protected function isImageFile($file)
+    {
+        return substr($file->getMimeType(), 0, 5) == 'image';
     }
 }
