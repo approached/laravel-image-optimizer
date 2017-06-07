@@ -64,7 +64,6 @@ public function store(Request $request, ImageOptimizer $imageOptimizer)
 ## Extension
 
 - On-demand image manipulation [alcodo/powerimage](https://github.com/alcodo/powerimage)
-- Gallery  [alcodo/gallery](https://github.com/alcodo/gallery)
 
 ## License
 MIT
