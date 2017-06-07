@@ -55,7 +55,7 @@ public function store(Request $request, ImageOptimizer $imageOptimizer)
         $imageOptimizer->optimizeUploadedImageFile($picture);
 
         // save
-        Storage::put('/my/cool/path/test.jog', File::get($picture));
+        Storage::put('/my/cool/path/test.jpg', File::get($picture));
 
         ...
     }
