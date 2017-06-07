@@ -32,24 +32,16 @@ php artisan vendor:publish
 ## Demo
 
 ### Automatic ([middleware](https://laravel.com/docs/5.4/middleware))
-If you want to run the ImageOptimizer automatically for all the uploaded images
-
-* first add the middleware to `app/Http/Kernel.php`
+If you want to run the ImageOptimizer automatically for all the uploaded images:
 ```php
-protected $routeMiddleware = [
-   // ...
-   'autoImageOptimizer'  => \Approached\LaravelImageOptimizer\Middleware\AutoImageOptimizer::class,
-];
+Route::get('admin/image/upload', function () {
+    $picture = $request->file('picture');
+
+   ...
+})->middleware(AutoImageOptimizer::class);
 ```
 
-* next add it to to your route/controller
-```php
-// App\Http\Controllers\UserController
-public function __construct()
-{
-   $this->middleware('autoImageOptimizer');
-}
-```
+You can also add this middleware to your `app/Http/Kernel.php`.
 
 ### Manuell
 
