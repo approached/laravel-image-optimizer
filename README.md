@@ -7,7 +7,6 @@
 
 With this package you can easy optimize your image in **laravel 5.x** or **lumen**. Read the google instruction https://developers.google.com/speed/docs/insights/OptimizeImages about image optimize.
 
-
 ## Installation
 
 Recommend convert packages:
@@ -15,22 +14,41 @@ Recommend convert packages:
 sudo apt-get install pngquant gifsicle jpegoptim
 ```
 
-Require this package with composer:
+- Require this package with composer:
 ```
 composer require approached/laravel-image-optimizer
 ```
 
-After updating composer, add the ServiceProvider to the providers array in config/app.php
+- After updating composer, add the ServiceProvider to the providers array in `config/app.php`
 ```php
 Approached\LaravelImageOptimizer\ServiceProvider::class,
-or
+// or
 'Approached\LaravelImageOptimizer\ServiceProvider'
 ```
 
-Copy the package config to your local config with the publish command:
+- Copy the package config to your local config with the publish command:
 ```
 php artisan vendor:publish
 ```
+
+- If you want to run the imageOptimizer automatically for all the uploaded images
+
+    * first add the middleware to `app/Http/Kernel.php`
+    ```php
+    protected $routeMiddleware = [
+        // ...
+        'autoImageOptimizer'  => \Approached\LaravelImageOptimizer\Middleware\AutoImageOptimizer::class,
+    ];
+    ```
+
+    * next add it to to your route/controller
+    ```php
+    // App\Http\Controllers\UserController
+    public function __construct()
+    {
+        $this->middleware('autoImageOptimizer');
+    }
+    ```
 
 ## Demo
 
@@ -45,7 +63,7 @@ public function store(Request $request, ImageOptimizer $imageOptimizer)
 
         // save
         Storage::put('/my/cool/path/test.jog', File::get($picture));
-        
+
         ...
     }
 ```
