@@ -22,8 +22,6 @@ composer require approached/laravel-image-optimizer
 - After updating composer, add the ServiceProvider to the providers array in `config/app.php`
 ```php
 Approached\LaravelImageOptimizer\ServiceProvider::class,
-// or
-'Approached\LaravelImageOptimizer\ServiceProvider'
 ```
 
 - Copy the package config to your local config with the publish command:
@@ -31,26 +29,29 @@ Approached\LaravelImageOptimizer\ServiceProvider::class,
 php artisan vendor:publish
 ```
 
-- If you want to run the imageOptimizer automatically for all the uploaded images
-
-    * first add the middleware to `app/Http/Kernel.php`
-    ```php
-    protected $routeMiddleware = [
-        // ...
-        'autoImageOptimizer'  => \Approached\LaravelImageOptimizer\Middleware\AutoImageOptimizer::class,
-    ];
-    ```
-
-    * next add it to to your route/controller
-    ```php
-    // App\Http\Controllers\UserController
-    public function __construct()
-    {
-        $this->middleware('autoImageOptimizer');
-    }
-    ```
-
 ## Demo
+
+### Automatic ([middleware](https://laravel.com/docs/5.4/middleware))
+If you want to run the ImageOptimizer automatically for all the uploaded images
+
+* first add the middleware to `app/Http/Kernel.php`
+```php
+protected $routeMiddleware = [
+   // ...
+   'autoImageOptimizer'  => \Approached\LaravelImageOptimizer\Middleware\AutoImageOptimizer::class,
+];
+```
+
+* next add it to to your route/controller
+```php
+// App\Http\Controllers\UserController
+public function __construct()
+{
+   $this->middleware('autoImageOptimizer');
+}
+```
+
+### Manuell
 
 On uploading a file:
 ```php
