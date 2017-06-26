@@ -2,8 +2,9 @@
 
 namespace Approached\LaravelImageOptimizer;
 
-use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Approached\LaravelImageOptimizer\Middleware\AutoImageOptimizer;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -27,6 +28,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
             return new ImageOptimizer($options, $logger);
         });
+
+        $this->app['router']->aliasMiddleware('AutoImageOptimizer', AutoImageOptimizer::class);
     }
 
     /**

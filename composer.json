@@ -33,5 +33,12 @@
     "classmap": [
       "tests/TestCase.php"
     ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Approached\\LaravelImageOptimizer\\ServiceProvider"
+      ]
+    }
   }
 }
