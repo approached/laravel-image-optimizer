@@ -41,6 +41,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/imageoptimizer.php' => config_path('imageoptimizer.php'),
-        ]);
+        ], 'imageoptimizer');
     }
 }
