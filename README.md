@@ -41,7 +41,7 @@ Route::post('admin/image/upload', function () {
 })->middleware('AutoImageOptimizer');
 ```
 
-### Manuell
+### Manual
 
 On uploading a file:
 ```php
