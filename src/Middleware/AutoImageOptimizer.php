@@ -21,9 +21,17 @@ class AutoImageOptimizer
             /** @var \Approached\LaravelImageOptimizer\ImageOptimizer $imageOptimizer */
             $imageOptimizer = app('Approached\LaravelImageOptimizer\ImageOptimizer');
 
-            foreach ($request->allFiles() as $file) {
-                if ($this->isImageFile($file)) {
-                    $imageOptimizer->optimizeUploadedImageFile($file);
+            foreach ($request->allFiles() as $one) {
+                if (is_array($one)) {
+                    foreach ($one as $file) {
+                        if ($this->isImageFile($file)) {
+                            $imageOptimizer->optimizeUploadedImageFile($file);
+                        }
+                    }
+                } else {
+                    if ($this->isImageFile($one)) {
+                        $imageOptimizer->optimizeUploadedImageFile($one);
+                    }
                 }
             }
         }
