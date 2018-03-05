@@ -1,3 +1,7 @@
+This package is now **deprecated**. I prefer to use [spatie/image-optimizer](https://github.com/spatie/image-optimizer) package. Because this code is better structured.
+
+<hr>
+
 # Laravel Imageoptimizer
 
 [![License](https://poser.pugx.org/approached/laravel-image-optimizer/license)](https://packagist.org/packages/approached/laravel-image-optimizer)
